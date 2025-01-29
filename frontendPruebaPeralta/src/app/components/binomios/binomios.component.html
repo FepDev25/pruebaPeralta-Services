@@ -1,0 +1,42 @@
+<h2 class="section-title">Lista de Binomios</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Numero Lista</th>
+            <th>Presidente</th>
+            <th>Vice preseidente</th>
+            <th>Partido</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let binomio of binomios">
+            <td>{{ binomio.numeroLista }}</td>
+            <td>{{ binomio.presidente }}</td>
+            <td>{{ binomio.vicepresidente }}</td>
+            <td>{{ binomio.partido }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+<div class="form-container">
+    <h2>Registrar Binomios</h2>
+    <form #binomiosForm="ngForm" (ngSubmit)="guardarBinomio(binomiosForm)">
+
+      <label>Número de lista:</label>   
+      <input type="number" [(ngModel)]="binomio.numeroLista" name="cedula" required>
+
+      <label>Presidente:</label>
+      <input type="text" [(ngModel)]="binomio.presidente" name="cedula" required>
+  
+      <label>Vice presidente:</label>
+      <input type="text" [(ngModel)]="binomio.vicepresidente" name="cedula" required>
+  
+      <label>Nombre del partido:</label>
+      <input type="text" [(ngModel)]="binomio.partido" name="cedula" required>
+  
+  
+      <button type="submit">Registrar Binomio</button>
+    </form>
+    <p *ngIf="mensajeUsuario">{{ mensajeUsuario }}</p>
+</div>
+  
